@@ -1,7 +1,5 @@
 package cs3500.music.view;
 
-import cs3500.music.model.Composition;
-import cs3500.music.model.Playable;
 
 import java.util.List;
 
