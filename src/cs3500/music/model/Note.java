@@ -9,6 +9,7 @@ public class Note implements NoteInterface{
   private int duration;
   private int instrument;
   private int volume;
+  private int startBeat;
 
   /**
    * creates a Note
@@ -18,11 +19,12 @@ public class Note implements NoteInterface{
    * @param instrument represents the instrument of the note
    * @param volume     represents the volume of a note
    */
-  public Note(int midiIndex, int duration, int instrument, int volume) {
+  public Note(int midiIndex, int duration, int instrument, int volume, int startBeat) {
     this.duration = duration;
     this.instrument = instrument;
     this.volume = volume;
     this.midiIndex = midiIndex;
+    this.startBeat = startBeat;
   }
 
   Note(int duration) {
@@ -76,6 +78,14 @@ public class Note implements NoteInterface{
   public int getVolume() {
     return this.volume;
   }
+
+  /**
+   * gets the start beat of the note
+   *
+   * @return the start beat
+   */
+
+  public int getStartBeat() {return this.startBeat;}
 
   /**
    * gets the instrument of the note
