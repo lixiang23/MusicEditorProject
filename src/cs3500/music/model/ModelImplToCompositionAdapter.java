@@ -29,6 +29,8 @@ public class ModelImplToCompositionAdapter implements Composition {
 
   }
 
+
+
   /**
    * Modifies the duration of the first occurrence of the given playable to be newDuration
    *
