@@ -79,6 +79,8 @@ public class Controller implements ControllerInterface {
       view.getGuiView();
       view.getMidiView();
     }
+
+
   }
 
 //  /**
