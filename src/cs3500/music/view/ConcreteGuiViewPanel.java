@@ -1,6 +1,7 @@
 package cs3500.music.view;
 
 import cs3500.music.Swingui.Constants;
+//import cs3500.music.model.CompositionImpl;
 import cs3500.music.model.CompositionImpl;
 import cs3500.music.model.Playable;
 

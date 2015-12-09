@@ -14,7 +14,7 @@ import cs3500.music.view.*;
 public class Controller implements ControllerInterface {
     private KeyboardHandler keyboardHandler;
     private MouseHandler mouseHandler;
-    private ModelImplToCompositionAdapter model;
+    private Composition model;
     private View view;
     private Timer timer;
 
@@ -24,7 +24,7 @@ public class Controller implements ControllerInterface {
      * @param view represents the view
      * @param model represents the model
      */
-    public Controller(View view, ModelImplToCompositionAdapter model) {
+    public Controller(View view, Composition model) {
         this.keyboardHandler = new KeyboardHandler();
         this.mouseHandler = new MouseHandler();
         this.view = view;
@@ -52,7 +52,7 @@ public class Controller implements ControllerInterface {
      * sets up key handler
      */
     public void keySetUp() {
-        Note n = new Note(0, 0, 0, 0);
+        Note n = new Note(0, 0, 0, 0, 0);
 
         /**
          *pauses when space key is presssed

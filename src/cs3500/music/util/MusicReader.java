@@ -25,11 +25,11 @@ public class MusicReader {
      * </p>
      * @param readable The source of data for the music composition
      * @param piece A builder for helping to construct a new composition
-     * @param <MusicEditorModel> The main model interface type describing music compositions
+     * @param <Composition> The main model interface type describing music compositions
      * @return
      */
-    public static <MusicEditorModel> MusicEditorModel
-    parseFile(Readable readable, CompositionBuilder<MusicEditorModel> piece) {
+    public static <Composition> Composition
+    parseFile(Readable readable, CompositionBuilder<Composition> piece) {
         Scanner scanner = new Scanner(readable);
         while (scanner.hasNext()) {
             String lineType = scanner.next();

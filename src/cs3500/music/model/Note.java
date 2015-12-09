@@ -41,6 +41,11 @@ public class Note implements NoteInterface{
     return midiIndex % 12;
   }
 
+  @Override
+  public int getPitchNum() {
+    return 0;
+  }
+
   /**
    * gets the duration of the note
    *
@@ -96,13 +101,13 @@ public class Note implements NoteInterface{
     return this.instrument;
   }
 
-  @Override
-  public void setNote(Note n) {
-    this.midiIndex = n.midiIndex;
-    this.duration = n.duration;
-    this.instrument = n.instrument;
-    this.volume = n.volume;
-  }
+//  @Override
+//  public void setNote(Note n) {
+//    this.midiIndex = n.midiIndex;
+//    this.duration = n.duration;
+//    this.instrument = n.instrument;
+//    this.volume = n.volume;
+//  }
 
   @Override
   public String pitchToString() {

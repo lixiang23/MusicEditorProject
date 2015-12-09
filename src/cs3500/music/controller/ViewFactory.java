@@ -1,10 +1,11 @@
-package cs3500.music.view;
+package cs3500.music.controller;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.*;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 
 import cs3500.music.model.*;
+import cs3500.music.view.*;
 
 /**
  * represents the view factory
@@ -12,7 +13,7 @@ import cs3500.music.model.*;
  */
 public class ViewFactory {
     //I DONT THINK I CHANGED THIS CORRECTLY
-    private ModelImplToCompositionAdapter model = new CompositionImpl(2000);
+    private Composition model = new ModelImplToCompositionAdapter();
     View view;
 
     /**
@@ -36,13 +37,13 @@ public class ViewFactory {
      */
     public View build(String viewName) {
         if (viewName.equals("console")) {
-            view = new ConsoleView(model);
+            view = new ConsoleView();
         } else if (viewName.equals("visual")) {
-            view = new GuiViewFrame(model);
+            view = new GuiViewFrame();
         } else if (viewName.equals("midi")) {
-            view = new MidiViewImpl(model);
+            view = new MidiViewImpl();
         } else if (viewName.equals("composite")) {
-            view = new CompositeView(model);
+            view = new CompositeView(new GuiViewFrame(), new MidiViewImpl());
         }
         return view;
     }

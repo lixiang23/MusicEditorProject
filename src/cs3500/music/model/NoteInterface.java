@@ -8,19 +8,19 @@ public interface NoteInterface {
   /**
    * Getter methods
    */
-  int getPitch();
+  int getPitchNum();
   int getDuration();
   int getIndex();
   int getVolume();
   int getOctave();
   int getInstrument();
 
-  /**
-   * sets the note to the given note
-   *
-   * @return new note, setted to the given note
-   */
-  void setNote(Note n);
+//  /**
+//   * sets the note to the given note
+//   *
+//   * @return new note, setted to the given note
+//   */
+//  void setNote(Note n);
 
   /**
    * Converts the pitch to a String Note

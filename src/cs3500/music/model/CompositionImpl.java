@@ -72,21 +72,26 @@ public final class CompositionImpl implements MusicEditorModel {
     }
 
     @Override
+    public boolean containsNote(int b, Note n) {
+        return false;
+    }
+
+    @Override
     public void addNote(int start, int end, int instrument, int pitch, int volume) {
         ArrayList<ArrayList<Note>> tempNotes = notes;
         if (start < this.notes.size()) {
-            tempNotes.get(start).add(new Note(pitch, end - start, instrument, volume));
+            tempNotes.get(start).add(new Note(pitch, end - start, instrument, volume, start));
         } else {
             tempNotes.addAll(addEmptyList(((start - notes.size()) + 1)));
             tempNotes.add(new ArrayList<Note>(Arrays.asList(
-                new Note(pitch, end - start, instrument, volume))));
+                new Note(pitch, end - start, instrument, volume, start))));
         }
         this.notes = tempNotes;
 
     }
 
     @Override
-    public void removeNote(int b, Note n) {
+    public void removeNote(int b, NoteInterface n) {
         ArrayList<ArrayList<Note>> tempNotes = notes;
         for (int i = 0; i < tempNotes.size(); i++) {
             if (i == b) {
@@ -111,7 +116,7 @@ public final class CompositionImpl implements MusicEditorModel {
 
     public Note getNoteOnBeat(int b, int midiIndex) {
         ArrayList<Note> tempNotes = this.getNotesOnBeat(b);
-        Note note = new Note(0, 0, 0, 0);
+        Note note = new Note(0, 0, 0, 0, 0);
         for (int i = 0; i < tempNotes.size(); i++) {
             if (tempNotes.get(i).getIndex() == midiIndex) {
                 note = tempNotes.get(i);
