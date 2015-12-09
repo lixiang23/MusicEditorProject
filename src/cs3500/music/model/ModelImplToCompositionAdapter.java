@@ -1,11 +1,13 @@
 package cs3500.music.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import cs3500.music.model.Playable.Pitch;
 import cs3500.music.util.CompositionBuilder;
 
+/**
+ * Created by margmra on 12/6/2015.
+ */
 public class ModelImplToCompositionAdapter implements Composition {
   CompositionImpl model;
 
@@ -105,6 +107,41 @@ public class ModelImplToCompositionAdapter implements Composition {
   }
 
   /**
+   * finds the lowest octave in the composition
+   *
+   * @return the lowest octave in the composition
+   */
+  private int lowestOctave() {
+    int lowestOctave = 10;
+    for (int i = 0; i < model.getNotes().size(); i++) {
+      for (int j = 0; j < model.getNotes().get(i).size(); j++) {
+        if (model.getNotes().get(i).get(j).getOctave() <= lowestOctave) {
+          lowestOctave = model.getNotes().get(i).get(j).getOctave();
+        }
+      }
+    }
+    return lowestOctave;
+  }
+
+
+  /**
+   * finds the highest octave in the composition
+   *
+   * @return the highest octave in the composition
+   */
+  private int highestOctave() {
+    int highestOctave = 1;
+    for (int i = 0; i < model.getNotes().size(); i++) {
+      for (int j = 0; j < model.getNotes().get(i).size(); j++) {
+        if (model.getNotes().get(i).get(j).getOctave() >= highestOctave) {
+          highestOctave = model.getNotes().get(i).get(j).getOctave();
+        }
+      }
+    }
+    return highestOctave;
+  }
+
+  /**
    * Finds the lowest Pitch of all the playables
    *
    * @return the lowest Pitch of all the playables
@@ -112,7 +149,24 @@ public class ModelImplToCompositionAdapter implements Composition {
   //TODO
   @Override
   public int lowestPitch() {
-    return 0;
+    ArrayList<Note> lowOctaveNotes = new ArrayList<>();
+    int low = 0;
+    for (int i = 0; i < model.getNotes().size(); i++) {
+      if (model.getNotes().get(i) != null) {
+        for (int j = 0; j < model.getNotes().get(i).size(); j++) {
+          if (model.getNotes().get(i).get(j).getOctave() == lowestOctave()) {
+            lowOctaveNotes.add(lowOctaveNotes.size(), model.getNotes().get(i).get(j));
+          }
+        }
+      }
+    }
+
+    for (int i = 0; i < lowOctaveNotes.size(); i++) {
+      if (getPitchIndex(lowOctaveNotes.get(i)) > low) {
+        low = getPitchIndex(lowOctaveNotes.get(i));
+      }
+    }
+    return low;
   }
 
   /**
@@ -123,7 +177,24 @@ public class ModelImplToCompositionAdapter implements Composition {
   // TODO
   @Override
   public int highestPitch() {
-    return 0;
+    ArrayList<Note> highOctaveNotes = new ArrayList<>();
+    int high = 11;
+    for (int i = 0; i < model.getNotes().size(); i++) {
+      if (model.getNotes().get(i) != null) {
+        for (int j = 0; j < model.getNotes().get(i).size(); j++) {
+          if (model.getNotes().get(i).get(j).getOctave() == highestOctave()) {
+            highOctaveNotes.add(highOctaveNotes.size(), model.getNotes().get(i).get(j));
+          }
+        }
+      }
+    }
+
+    for (int i = 0; i < highOctaveNotes.size(); i++) {
+      if (getPitchIndex(highOctaveNotes.get(i)) < high) {
+        high = getPitchIndex(highOctaveNotes.get(i));
+      }
+    }
+    return high;
   }
 
   /**
