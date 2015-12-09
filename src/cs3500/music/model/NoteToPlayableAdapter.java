@@ -11,7 +11,7 @@ public class NoteToPlayableAdapter extends Playable implements NoteInterface{
 
   //FIX THIS!!!
   public int getPitch() {
-    return CompositionImpl.getNumPitch(pitch,octave);
+    return CompositionImpl.getNumPitch(pitch,octave) % 12;
   }
 
   public int getDuration() {
@@ -36,7 +36,8 @@ public class NoteToPlayableAdapter extends Playable implements NoteInterface{
 
   @Override
   public void setNote(Note n) {
-    this.pitch = null;
+    //FIX PITCH!!!!!!!!!!!!
+    this.pitch = n.
     this.octave = n.getOctave();
     this.start = n.getStartBeat();
     this.duration = n.getDuration();
