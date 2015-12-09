@@ -200,6 +200,7 @@ public class ModelImplToCompositionAdapter implements Composition {
       return null;
     }
 
+
     @Override
     public CompositionBuilder<Composition>
     addNote(int start, int end, int instrument, int pitch, int volume) {
@@ -213,5 +214,8 @@ public class ModelImplToCompositionAdapter implements Composition {
 //      musicEditor.getTempo() = tempo;
 //      return this;
 //    }
+
+
+    // TODO HI MIRDA
   }
 }
