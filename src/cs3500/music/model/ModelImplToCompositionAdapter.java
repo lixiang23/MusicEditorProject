@@ -203,6 +203,7 @@ public class ModelImplToCompositionAdapter implements Composition {
     @Override
     public CompositionBuilder<Composition>
     addNote(int start, int end, int instrument, int pitch, int volume) {
+      musicEditor.addNote(new NoteToPlayableAdapter())
       musicEditor.model.addNote(start, end, instrument, pitch, volume);
       return this;
     }
