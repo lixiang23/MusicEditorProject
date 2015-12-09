@@ -1,12 +1,13 @@
 package cs3500.music.model;
 
 import java.util.List;
+import cs3500.music.model.Playable.Pitch;
 
 /**
  * Created by margmra on 12/6/2015.
  */
 public class ModelImplToCompositionAdapter implements Composition {
-  MusicEditorImpl model;
+  CompositionImpl model;
 
   /**
    * Adds the given playable to the score

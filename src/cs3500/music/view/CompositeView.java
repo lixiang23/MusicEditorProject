@@ -2,7 +2,7 @@
 
 package cs3500.music.view;
 
-import cs3500.music.Controller.KeyboardHandler;
+import cs3500.music.controller.KeyboardHandler;
 
 import java.awt.event.MouseAdapter;
 

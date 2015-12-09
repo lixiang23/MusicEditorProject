@@ -2,6 +2,7 @@ package cs3500.music.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import cs3500.music.model.Playable.Pitch;
 
 /**
  * Created by sabrinakantor on 11/1/15.

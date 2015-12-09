@@ -165,5 +165,13 @@ public abstract class Playable {
 
   }
 
+  /**
+   * is a pitch
+   */
+
+  public enum Pitch {
+    C, CSHARP, D, DSHARP, E, F, FSHARP, G, GSHARP, A, ASHARP, B
+  }
+
 
 }

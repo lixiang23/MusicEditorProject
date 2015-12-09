@@ -2,6 +2,8 @@ package cs3500.music.model;
 
 import cs3500.music.MusicEditor;
 import cs3500.music.util.CompositionBuilder;
+import cs3500.music.model.*;
+import cs3500.music.model.Playable.Pitch;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -11,7 +13,7 @@ import java.util.*;
  *
  * INVARIANT: Height has to be greater than 0 INVARIANT: Length has to be greater than 0
  */
-public final class MusicEditorImpl implements MusicEditorModel {
+public final class CompositionImpl implements MusicEditorModel {
 
     /**
      * The list of notes in the music editor
@@ -28,12 +30,12 @@ public final class MusicEditorImpl implements MusicEditorModel {
      *
      * @param tempo, the tempo of the composition
      */
-    public MusicEditorImpl(int tempo) {
+    public CompositionImpl(int tempo) {
         this.notes = new ArrayList<ArrayList<Note>>();
         this.tempo = tempo;
     }
 
-    public MusicEditorImpl() {
+    public CompositionImpl() {
         this.notes = new ArrayList<ArrayList<Note>>();
 
     }
@@ -130,6 +132,103 @@ public final class MusicEditorImpl implements MusicEditorModel {
         }
     }
 
+    public static int getNumPitch(Pitch pitch, int octave) {
+        int numPitch = octave * 12;
+        switch (pitch) {
+            case C:
+                numPitch += 0;
+                break;
+            case CSHARP:
+                numPitch += 1;
+                break;
+            case D:
+                numPitch += 2;
+                break;
+            case DSHARP:
+                numPitch += 3;
+                break;
+            case E:
+                numPitch += 4;
+                break;
+            case F:
+                numPitch += 5;
+                break;
+            case FSHARP:
+                numPitch += 6;
+                break;
+            case G:
+                numPitch += 7;
+                break;
+            case GSHARP:
+                numPitch += 8;
+                break;
+            case A:
+                numPitch += 9;
+                break;
+            case ASHARP:
+                numPitch += 10;
+                break;
+            case B:
+                numPitch += 11;
+                break;
+            default:
+                break;
+        }
+        return numPitch;
+    }
+
+    /**
+     * Returns the Stirng version of the given note name
+     *
+     * @param pitch the desired pitch to get as String
+     * @return the pitch as a String
+     */
+    public static String noteNames(int pitch) {
+        String name = "";
+        switch (pitch) {
+            case 0:
+                name = "C";
+                break;
+            case 1:
+                name = "C#";
+                break;
+            case 2:
+                name = "D";
+                break;
+            case 3:
+                name = "D#";
+                break;
+            case 4:
+                name = "E";
+                break;
+            case 5:
+                name = "F";
+                break;
+            case 6:
+                name = "F#";
+                break;
+            case 7:
+                name = "G";
+                break;
+            case 8:
+                name = "G#";
+                break;
+            case 9:
+                name = "A";
+                break;
+            case 10:
+                name = "A#";
+                break;
+            case 11:
+                name = "B";
+                break;
+            default:
+                break;
+        }
+        return name;
+
+    }
+
 
     /**
      * Configures and builds a {@link MusicEditorModel} in builder-pattern style.
@@ -137,10 +236,10 @@ public final class MusicEditorImpl implements MusicEditorModel {
     public static final class Builder implements CompositionBuilder<MusicEditorModel> {
         private int tempo = DEFAULT_TEMPO;
 
-        MusicEditorImpl musicEditor = new MusicEditorImpl(tempo);
+        CompositionImpl musicEditor = new CompositionImpl(tempo);
 
         /**
-         * Invariants are the same as for MusicEditorImpl:
+         * Invariants are the same as for CompositionImpl:
          *
          * length > 0 height > 0 and height < 128
          */
