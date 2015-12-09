@@ -84,7 +84,7 @@ public abstract class ViewModel {
    * @return
    */
 
-  private static ViewModel fromComposition(Composition adaptee) {
+  public static ViewModel fromComposition(Composition adaptee) {
     return new ViewModel(adaptee.highestPitch(), adaptee.lowestPitch(), adaptee.lastNote(),
             adaptee.getTempo()) {
       @Override public List<Playable> whatIsPlayingAt(int beat) {

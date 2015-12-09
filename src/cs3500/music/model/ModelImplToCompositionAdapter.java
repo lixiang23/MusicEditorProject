@@ -1,15 +1,11 @@
 package cs3500.music.model;
 
-import com.sun.tools.internal.ws.processor.model.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 import cs3500.music.model.Playable.Pitch;
 import cs3500.music.util.CompositionBuilder;
 
-/**
- * Created by margmra on 12/6/2015.
- */
 public class ModelImplToCompositionAdapter implements Composition {
   CompositionImpl model;
 
