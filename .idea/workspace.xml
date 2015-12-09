@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2edd7f80-d82a-42ab-9efe-e8d1d494d637" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs3500/music/controller/Controller.java" afterPath="$PROJECT_DIR$/src/cs3500/music/controller/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs3500/music/model/ModelImplToCompositionAdapter.java" afterPath="$PROJECT_DIR$/src/cs3500/music/model/ModelImplToCompositionAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs3500/music/MusicEditor.java" afterPath="$PROJECT_DIR$/src/cs3500/music/MusicEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs3500/music/controller/ViewFactory.java" afterPath="$PROJECT_DIR$/src/cs3500/music/controller/ViewFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs3500/music/view/ViewInterface.java" afterPath="$PROJECT_DIR$/src/cs3500/music/view/ViewInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs3500/music/view/ViewModel.java" afterPath="$PROJECT_DIR$/src/cs3500/music/view/ViewModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs3500/music/view/ViewToViewInterfaceAdapter.java" afterPath="$PROJECT_DIR$/src/cs3500/music/view/ViewToViewInterfaceAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="music-editor2.iws" />
@@ -37,9 +30,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,8 +98,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cs3500/music/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33707866">
-              <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.8005618">
+              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1320#1321#0" expanded="true" />
@@ -723,6 +714,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
@@ -757,7 +754,7 @@
       <workItem from="1449537409017" duration="11000" />
       <workItem from="1449537496295" duration="11341000" />
       <workItem from="1449613305636" duration="19868000" />
-      <workItem from="1449638860055" duration="9579000" />
+      <workItem from="1449638860055" duration="9670000" />
     </task>
     <task id="LOCAL-00001" summary="here's all the other packages">
       <created>1449378832700</created>
@@ -825,11 +822,23 @@
       <option name="project" value="LOCAL" />
       <updated>1449643661123</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="newest one&#10;    siete">
+      <created>1449649753519</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1449649753519</updated>
+    </task>
+    <task id="LOCAL-00013" summary="newest one&#10;    siete">
+      <created>1449649794617</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1449649794620</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42682000" />
+    <option name="totallyTimeSpent" value="42773000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -893,7 +902,8 @@
     <MESSAGE value="newest one&#10;    quatro" />
     <MESSAGE value="newest one&#10;    cinco" />
     <MESSAGE value="newest one&#10;    seis" />
-    <option name="LAST_COMMIT_MESSAGE" value="newest one&#10;    seis" />
+    <MESSAGE value="newest one&#10;    siete" />
+    <option name="LAST_COMMIT_MESSAGE" value="newest one&#10;    siete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1279,9 +1289,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1347,8 +1355,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cs3500/music/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33707866">
-          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.8005618">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1320#1321#0" expanded="true" />
