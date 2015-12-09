@@ -15,6 +15,7 @@ public class ModelImplToCompositionAdapter implements Composition {
 
   public ModelImplToCompositionAdapter() {
 
+    this.model = new CompositionImpl();
   }
   /**
    * Adds the given playable to the score
