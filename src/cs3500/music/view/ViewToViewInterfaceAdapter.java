@@ -38,7 +38,6 @@ public class ViewToViewInterfaceAdapter implements ViewInterface {
    */
   @Override
   public void pause() {
-
   }
 
   /**

@@ -49,12 +49,14 @@ public class MusicEditor {
       viewFactory.build(view).render(viewModel);
     }
     else if (view.equals("midi")){
-      viewFactory.build(view).updateMidi(viewModel);
       viewFactory.build(view).render(viewModel);
     }
     else if (view.equals("composite")) {
       compositeView.getMidiView();
       compositeView.getGuiView();
+    }
+    else {
+      throw new IllegalArgumentException("invalid view");
     }
 
   }
