@@ -50,7 +50,7 @@ public class MusicEditor {
     }
     else if (view.equals("midi")){
       viewFactory.build(view).updateMidi(viewModel);
-      viewFactory.build(view).renderMidi(viewModel);
+      viewFactory.build(view).render(viewModel);
     }
     else if (view.equals("composite")) {
       compositeView.getMidiView();

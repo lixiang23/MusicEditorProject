@@ -44,13 +44,107 @@ public class Controller implements ControllerInterface {
 
   }
 
-  @Override
-  public void mouseSetUp() {
 
+
+//  @Override
+//  public Double getBeat(int x) {
+//    return null;
+//  }
+//
+//  @Override
+//  public Double getPitch(int y) {
+//    return null;
+//  }
+//
+//  @Override
+//  public int highestPitch() {
+//    return 0;
+//  }
+
+
+
+
+
+  /**
+   * sets up mouse handler
+   */
+  public void mouseSetUp() {
+    view.getGuiView().addMouseListener(this.mouseHandler);
   }
 
-  @Override
+
+  /**
+   * sets up key handler
+   */
   public void keySetUp() {
+    Note n = new Note(0, 0, 0, 0, 0);
+
+    /**
+     *pauses when space key is presssed
+     */
+    keyboardHandler.addPress(KeyEvent.VK_SPACE, () -> {
+      timer.stop();
+      view.pause();
+    });
+
+    /**
+     starts when p key is pressed
+     */
+    keyboardHandler.addPress(KeyEvent.VK_P, () -> {
+      timer.start();
+      view.play();
+    });
+
+    /**
+     * restarts the composition from the beginning when home key is pressed
+     * for macs press fn + left keys
+     */
+
+    keyboardHandler.addPress(KeyEvent.VK_HOME, () -> {
+      timer.restart();
+      view.setCurrentTime(0);
+      view.start();
+    });
+
+    /**
+     * adds a note of the same instrument and volute when
+     * a key is pressed
+     * first click with mouse at desired location then press a
+     */
+    keyboardHandler.addPress(KeyEvent.VK_A, () -> {
+//      model.addNote((getBeat(mouseHandler.X).intValue()), (getBeat(mouseHandler.X).intValue() + 1),
+//              1, highestPitch() - getPitch(mouseHandler.Y).intValue(), 60);
+      view.getGuiView().updateFrame(viewModel);
+
+    });
+
+
+    /**
+     * removes the note at mouse location when r is pressed
+     */
+    keyboardHandler.addPress(KeyEvent.VK_R, () -> {
+//      model.removeNote((getBeat(mouseHandler.X).intValue()),
+//              model.getNoteOnBeat((getBeat(mouseHandler.X).intValue()),
+//                      highestPitch() - getPitch(mouseHandler.Y).intValue()));
+      view.getGuiView().updateFrame(viewModel);
+
+
+    });
+
+    // edits the note (removing the note and placing it at another beat)
+    /**
+     * edits the note when e is pressed
+     * it removes the note and places it at another beat
+     */
+    keyboardHandler.addPress(KeyEvent.VK_E, () -> {
+//      model.addNote((getBeat(mouseHandler.X).intValue()),
+//              n.getDuration() + (getBeat(mouseHandler.X).intValue()),
+//              n.getInstrument(),
+//              highestPitch() - getPitch(mouseHandler.Y).intValue(), n.getVolume());
+      view.getGuiView().updateFrame(viewModel);
+
+    });
+    view.getGuiView().addKeyListener(keyboardHandler);
 
   }
 
@@ -69,113 +163,6 @@ public class Controller implements ControllerInterface {
     return 0;
   }
 
-  public void build(String viewName) {
-    if (viewName.equals("visual")) {
-      view.getGuiView();
-    } else if (viewName.equals("midi")) {
-      view.getMidiView();
-    }
-    else if (viewName.equals("composite")) {
-      view.getGuiView();
-      view.getMidiView();
-    }
-
-
-  }
-
-//  /**
-//   * sets up mouse handler
-//   */
-//  public void mouseSetUp() {
-//    view.getGuiView().addMouseListener(this.mouseHandler);
-//  }
-//
-//
-//  /**
-//   * sets up key handler
-//   */
-//  public void keySetUp() {
-//    Note n = new Note(0, 0, 0, 0, 0);
-//
-//    /**
-//     *pauses when space key is presssed
-//     */
-//    keyboardHandler.addPress(KeyEvent.VK_SPACE, () -> {
-//      timer.stop();
-//      view.pause();
-//    });
-//
-//    /**
-//     starts when p key is pressed
-//     */
-//    keyboardHandler.addPress(KeyEvent.VK_P, () -> {
-//      timer.start();
-//      view.play();
-//    });
-//
-//    /**
-//     * restarts the composition from the beginning when home key is pressed
-//     * for macs press fn + left keys
-//     */
-//
-//    keyboardHandler.addPress(KeyEvent.VK_HOME, () -> {
-//      timer.restart();
-//      view.setCurrentTime(0);
-//      view.start();
-//    });
-//
-//    /**
-//     * adds a note of the same instrument and volute when
-//     * a key is pressed
-//     * first click with mouse at desired location then press a
-//     */
-//    keyboardHandler.addPress(KeyEvent.VK_A, () -> {
-//      model.addNote((getBeat(mouseHandler.X).intValue()), (getBeat(mouseHandler.X).intValue() + 1),
-//              1, highestPitch() - getPitch(mouseHandler.Y).intValue(), 60);
-//      view.getGuiView().getGui().repaint();
-//
-//    });
-//
-//
-//    /**
-//     * removes the note at mouse location when r is pressed
-//     */
-//    keyboardHandler.addPress(KeyEvent.VK_R, () -> {
-//      model.removeNote((getBeat(mouseHandler.X).intValue()),
-//              model.getNoteOnBeat((getBeat(mouseHandler.X).intValue()),
-//                      highestPitch() - getPitch(mouseHandler.Y).intValue()));
-//      view.getGuiView().getGui().repaint();
-//      n.setNote(new Note(model.getNoteOnBeat((getBeat(mouseHandler.X).intValue()),
-//              highestPitch() - getPitch(mouseHandler.Y).intValue()).getIndex(),
-//              model.getNoteOnBeat((getBeat(mouseHandler.X).intValue()),
-//                      highestPitch() - getPitch(mouseHandler.Y).intValue()).getDuration(),
-//              model.getNoteOnBeat((getBeat(mouseHandler.X).intValue()),
-//                      highestPitch() - getPitch(mouseHandler.Y).intValue()).getInstrument(),
-//              model.getNoteOnBeat((getBeat(mouseHandler.X).intValue()),
-//                      highestPitch() - getPitch(mouseHandler.Y).intValue()).getVolume()));
-////      System.out.println("INDEX:" +model.getNoteOnBeat((getBeat(mouseHandler.X).intValue()),
-////              highestPitch() - getPitch(mouseHandler.Y).intValue()).pitchToString());
-////      System.out.println("Instrument:" + n.getInstrument());
-//
-//    });
-//
-//    // edits the note (removing the note and placing it at another beat)
-//    /**
-//     * edits the note when e is pressed
-//     * it removes the note and places it at another beat
-//     */
-//    keyboardHandler.addPress(KeyEvent.VK_E, () -> {
-//      model.addNote((getBeat(mouseHandler.X).intValue()),
-//              n.getDuration() + (getBeat(mouseHandler.X).intValue()),
-//              n.getInstrument(),
-//              highestPitch() - getPitch(mouseHandler.Y).intValue(), n.getVolume());
-//      view.getGuiView().getGui().repaint();
-//
-//    });
-//    view.getGuiView().addKeyListener(keyboardHandler);
-//
-//  }
-//
 //  /**
 //   * finds which beat the mouse location corresponds too
 //   *

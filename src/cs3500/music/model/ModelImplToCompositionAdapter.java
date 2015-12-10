@@ -108,7 +108,15 @@ public class ModelImplToCompositionAdapter implements Composition {
   // TODO
   @Override
   public List<Playable> whatIsPlaying(int beat) {
-    return null;
+    List<Playable> tempNotes = notes;
+    List<Playable> finalNotesOnBeat = new ArrayList<Playable>();
+    for (int i = 0; i < notes.size(); i++) {
+      if (tempNotes.get(i).start <= beat &&
+              beat <= (tempNotes.get(i).start + tempNotes.get(i).getDuration())) {
+        finalNotesOnBeat.add(tempNotes.get(i));
+      }
+    }
+    return finalNotesOnBeat;
   }
 
 
@@ -160,8 +168,16 @@ public class ModelImplToCompositionAdapter implements Composition {
   // TODO
   @Override
   public int lastNote() {
-    return 0;
-  }
+      Playable lastLongestNote = new NoteToPlayableAdapter(Pitch.C, 0,0,0);
+      for (int i = 0; i < notes.size(); i++){
+        if(notes.get(i).getStart() + notes.get(i).getDuration() >
+                lastLongestNote.getStart() + lastLongestNote.getDuration()) {
+          lastLongestNote = notes.get(i);
+        }
+      }
+      return lastLongestNote.getStart() + lastLongestNote.getDuration();
+    }
+  
 
   /**
    * Returns a list of what playables start at a given beat
@@ -172,7 +188,14 @@ public class ModelImplToCompositionAdapter implements Composition {
   // TODO
   @Override
   public List<Playable> whatStartsAt(int beat) {
-    return null;
+    List<Playable> tempNotes = notes;
+    List<Playable> finalNotesOnBeat = new ArrayList<Playable>();
+    for (int i = 0; i < notes.size(); i++) {
+      if (tempNotes.get(i).start == beat) {
+        finalNotesOnBeat.add(tempNotes.get(i));
+      }
+    }
+    return finalNotesOnBeat;
   }
 
   /**
@@ -230,6 +253,7 @@ public class ModelImplToCompositionAdapter implements Composition {
               NoteToPlayableAdapter.midiIndexToPitch(pitch), pitch / 12, start, end - start));
       musicEditor.model.addNote(start, end, instrument, pitch, volume);
       return this;
+
     }
 
 //    @Override
