@@ -36,13 +36,23 @@ public class MusicEditor {
           IOException, InvalidMidiDataException, InterruptedException {
     CompositionBuilder<Composition> model = new ModelImplToCompositionAdapter.Builder();
     Composition model1 = MusicReader.parseFile(new FileReader(args[0]), model);
-    ViewFactory viewFactory = new ViewFactory();
-    viewFactory.build(args[1]);
+    ViewFactory viewFactory = new ViewFactory(model1);
+//    viewFactory.build(args[1]);
+    String view = args[1];
     GuiView guiView = new GuiViewFrame();
     View midiView = new MidiViewImpl();
     ViewModel viewModel = ViewModel.fromComposition(model1);
     ViewToViewInterfaceAdapter compositeView = new ViewToViewInterfaceAdapter(guiView, midiView, viewModel);
     Controller controller = new Controller(compositeView, model1);
+    if (view.equals("console") || view.equals("visual") ||
+            view.equals("composite")) {
+      viewFactory.build(view).updateGui(viewModel);
+      viewFactory.build(view).render(viewModel);
+    }
+    else if (view.equals("midi")){
+      viewFactory.build(view).updateMidi(viewModel);
+      viewFactory.build(view).renderMidi(viewModel);
+    }
 
   }
 }

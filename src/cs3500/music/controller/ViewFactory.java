@@ -17,8 +17,8 @@ public class ViewFactory {
   /**
    * creates a view
    */
-  public ViewFactory() {
-
+  public ViewFactory(Composition model) {
+    this.model = model;
   }
 
   /**
