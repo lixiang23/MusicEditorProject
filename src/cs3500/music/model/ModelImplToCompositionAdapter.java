@@ -25,7 +25,7 @@ public class ModelImplToCompositionAdapter implements Composition {
   @Override
   public void addNote(Playable playable) {
     List<Playable> tempNotes = notes;
-    tempNotes.add(playable.start, playable);
+    tempNotes.add(playable);
     this.notes = tempNotes;
     model.addNote(playable.getStart(), playable.getStart() + playable.getDuration(),
             playable.getInstrument(), CompositionImpl.getNumPitch(playable.getPitch()
