@@ -44,14 +44,17 @@ public class MusicEditor {
     ViewModel viewModel = ViewModel.fromComposition(model1);
     ViewToViewInterfaceAdapter compositeView = new ViewToViewInterfaceAdapter(guiView, midiView, viewModel);
     Controller controller = new Controller(compositeView, model1);
-    if (view.equals("console") || view.equals("visual") ||
-            view.equals("composite")) {
+    if (view.equals("console") || view.equals("visual")) {
       viewFactory.build(view).updateGui(viewModel);
       viewFactory.build(view).render(viewModel);
     }
     else if (view.equals("midi")){
       viewFactory.build(view).updateMidi(viewModel);
       viewFactory.build(view).renderMidi(viewModel);
+    }
+    else if (view.equals("composite")) {
+      compositeView.getMidiView();
+      compositeView.getGuiView();
     }
 
   }

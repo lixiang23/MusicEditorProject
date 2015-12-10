@@ -1,6 +1,7 @@
 package cs3500.music.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import cs3500.music.model.Playable.Pitch;
 import cs3500.music.util.CompositionBuilder;
@@ -10,9 +11,10 @@ import cs3500.music.util.CompositionBuilder;
  */
 public class ModelImplToCompositionAdapter implements Composition {
   CompositionImpl model;
+  List<Playable> notes;
 
   public ModelImplToCompositionAdapter() {
-
+    this.notes = new ArrayList<Playable>();
     this.model = new CompositionImpl();
   }
   /**
@@ -22,6 +24,9 @@ public class ModelImplToCompositionAdapter implements Composition {
    */
   @Override
   public void addNote(Playable playable) {
+    List<Playable> tempNotes = notes;
+    tempNotes.add(playable.start, playable);
+    this.notes = tempNotes;
     model.addNote(playable.getStart(), playable.getStart() + playable.getDuration(),
             playable.getInstrument(), CompositionImpl.getNumPitch(playable.getPitch()
                     , playable.getOctave()) % 12, playable.getVolume());
@@ -221,6 +226,8 @@ public class ModelImplToCompositionAdapter implements Composition {
     @Override
     public CompositionBuilder<Composition>
     addNote(int start, int end, int instrument, int pitch, int volume) {
+      musicEditor.addNote(new NoteToPlayableAdapter(
+              NoteToPlayableAdapter.midiIndexToPitch(pitch), pitch / 12, start, end - start));
       musicEditor.model.addNote(start, end, instrument, pitch, volume);
       return this;
     }

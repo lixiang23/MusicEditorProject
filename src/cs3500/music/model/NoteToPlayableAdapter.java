@@ -52,4 +52,53 @@ public class NoteToPlayableAdapter extends Playable implements NoteInterface{
   public String pitchToString() {
     return null;
   }
+
+
+  public static Pitch midiIndexToPitch(int midiIndex) {
+    int pitchNum = midiIndex % 12;
+    Pitch pitch;
+    switch (pitchNum) {
+      case 0:
+        pitch = Pitch.C;
+        break;
+      case 1:
+        pitch = Pitch.CSHARP;
+        break;
+      case 2:
+        pitch = Pitch.D;
+        break;
+      case 3:
+        pitch = Pitch.DSHARP;
+        break;
+      case 4:
+        pitch = Pitch.E;
+        break;
+      case 5:
+        pitch = Pitch.F;
+        break;
+      case 6:
+        pitch = Pitch.FSHARP;
+        break;
+      case 7:
+        pitch = Pitch.G;
+        break;
+      case 8:
+        pitch = Pitch.GSHARP;
+        break;
+      case 9:
+        pitch = Pitch.A;
+        break;
+      case 10:
+        pitch = Pitch.ASHARP;
+        break;
+      case 11:
+        pitch = Pitch.B;
+        break;
+      default:
+        pitch = null;
+        break;
+    }
+    return pitch;
+  }
+
 }
