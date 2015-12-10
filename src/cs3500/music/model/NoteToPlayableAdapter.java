@@ -15,6 +15,7 @@ public class NoteToPlayableAdapter extends Playable implements NoteInterface{
     return CompositionImpl.getNumPitch(pitch,octave) % 12;
   }
 
+
   public Pitch getPitch() {
     return pitch;
   }
